@@ -3,17 +3,28 @@
 use App\Autoloader;
 use App\Models\Poste;
 use App\Models\User;
-
+use App\Core\App;
 require_once '/app/Autoloader.php';
 Autoloader::register();
 
-$user2 = new User();
-$user2->setFirstName('momo');
-$user2->setLastName('mak');
-$user2->setEmail('momo@momotestete.com');
-$user2->setPassword(password_hash('momo', PASSWORD_ARGON2ID));
-$user2->setRoles(['ROLE_ADMIN']);
-var_dump($user2);
+define('DIR_ROOT', dirname(__DIR__));
+
+
+
+// On va instancier l'objet App (qui représente notre application)
+$app = new App();
+
+// On va lancer l'app (méthode start)
+$app->start();
+
+
+//$user2 = new User();
+//$user2->setFirstName('momo');
+//$user2->setLastName('mak');
+//$user2->setEmail('momo@momotestete.com');
+//$user2->setPassword(password_hash('momo', PASSWORD_ARGON2ID));
+//$user2->setRoles(['ROLE_ADMIN']);
+//var_dump($user2);
 
 //$user2 = (new User())
 //        ->setFirstName('momo')
@@ -23,16 +34,7 @@ var_dump($user2);
 //        ->setRoles(['ROLE_ADMIN']);
 //var_dump($user2);
 
-$user = new User();
-$user->setFirstName('momo');
-$user->setLastName('mak');
-$user->setEmail('momo@momo111.com');
-$user->setPassword(password_hash('momo', PASSWORD_ARGON2ID));
-$user->setRoles(['ROLE_ADMIN']);
-$user->create();
 
-
-var_dump($user);
 //$donnees = [
 //    'title' => 'Mon titre est ',
 //    'description' => 'My life',

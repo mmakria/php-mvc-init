@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use app\Core\Database;
+use App\Core\Database;
 
 abstract class Model extends Database
 {
@@ -14,10 +14,7 @@ abstract class Model extends Database
         $pdoStatement = $this->runQuery(/** @lang text */ "SELECT * FROM {$this->table} WHERE id = :id",
             ['id' => $id])
             ->fetch();
-
         return $this->fetchHydrate($pdoStatement);
-
-
     }
 
     public function findAll(): array
